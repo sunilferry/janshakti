@@ -1,0 +1,87 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name" translatable="false">Attendance Management System</string>
+    <string name="no_internet" translatable="false">Please turn on your internet connection..</string>
+    <string name="n_a" translatable="false">N/A</string>
+    <string name="reported_by" translatable="false">Reported By</string>
+    <string name="comment" translatable="false">Comment</string>
+    <string name="capture_photo" translatable="false">* कृपया फोटो खींचकर अपलोड करे</string>
+    <string name="alert_text" translatable="false">Alert</string>
+    <string name="permission_camera_rationale11" translatable="false">Some permission are required to use the app.</string>
+    <string name="reqst_permission" translatable="false">Request permission?</string>
+    <string name="dont" translatable="false">Don\'t have an account?</string>
+    <string name="sing_up" translatable="false">Registration</string>
+    <string name="registration" translatable="false">New User Registration</string>
+    <string name="select_mandi" translatable="false">Select Mandi</string>
+    <string name="select_section" translatable="false">Select Section</string>
+    <string name="select_position" translatable="false">Select Position</string>
+    <string name="verification_code" translatable="false">Verification Code</string>
+    <string name="enter_verification_code" translatable="false">Enter 4-Digit Verification Code</string>
+    <string name="otp_resend_in" translatable="false">One-Time Password will be resend in</string>
+    <string name="resend" translatable="false">Didn\'t get <b>OTP</b> then press Resend</string>
+    <string name="txt_resend" translatable="false"><u>Resend</u></string>
+    <string name="please_type_the_verification_code_sent_to_below_given_mobile_number" translatable="false">Please type the verification code sent to below given Mobile Number</string>
+    <string name="new_events" translatable="false">Dashboard</string>
+    <string name="events_forwarded_to_ro" translatable="false">Previous Attendance</string>
+    <string name="events_from_ro" translatable="false">Events From RO</string>
+    <string name="events_history" translatable="false">Events History</string>
+    <string name="master_list" translatable="false">Master List</string>
+    <string name="forester_master_list" translatable="false">Forester Master List</string>
+    <string name="beat_master_list" translatable="false">Beat Master List</string>
+    <string name="profile" translatable="false">Profile</string>
+    <string name="change_password" translatable="false" tools:ignore="DuplicateDefinition"><u>Change Password</u></string>
+    <string name="logout" translatable="false">Logout</string>
+    <string name="share_app" translatable="false">Share App</string>
+    <string name="rate_app" translatable="false">Rate App</string>
+    <string name="privacy_policy" translatable="false">Privacy Policy</string>
+    <string name="you_re_20_meters_away_from_you_mandi" translatable="false">You\'re 20 Meters away from your Office</string>
+    <string name="make_attendance" translatable="false"><b><u>Punch Attendance</u></b></string>
+    <string name="view_attendance" translatable="false">View Attendance</string>
+    <string name="incorrect_login">Login credentials that you have entered are incorrect.</string>
+    <string name="material_calendar_monday">M</string>
+    <string name="material_calendar_tuesday">T</string>
+    <string name="material_calendar_wednesday">W</string>
+    <string name="material_calendar_thursday">T</string>
+    <string name="material_calendar_friday">F</string>
+    <string name="material_calendar_saturday">S</string>
+    <string name="material_calendar_sunday">S</string>
+
+    <array name="material_calendar_day_abbreviations_array">
+        <item>@string/material_calendar_sunday</item>
+        <item>@string/material_calendar_monday</item>
+        <item>@string/material_calendar_tuesday</item>
+        <item>@string/material_calendar_wednesday</item>
+        <item>@string/material_calendar_thursday</item>
+        <item>@string/material_calendar_friday</item>
+        <item>@string/material_calendar_saturday</item>
+    </array>
+
+    <array name="material_calendar_months_array">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </array>
+    <string name="save_amp_next"><![CDATA[Save & Next]]></string>
+    <string name="update">The current version this Application is no longer supportable. We recommends that you update to the latest version. You can keep using the app while downloading the update \n\n<b>Please update the newer version</b></string>
+    <string name="got_it">Got It</string>
+    <string name="material_calendar_today_button">Today</string>
+    <string name="material_calendar_positive_button">OK</string>
+    <string name="material_calendar_negative_button">Cancel</string>
+    <string name="ten_meters_tv">(To mark your attendance you better should be in <b>100 Mtrs</b> radius of your Office)</string>
+    <string name="start_end_date">** Please select <b>Start and End Date</b> to see your Attendance List with Date and Time</string>
+    <string name="others_attendance">** Please enter <b>Employee Id</b> for whom you want to <b>Punch Attendance</b></string>
+    <string name="no_office_attached_with_you_nplease_contact_to_nadministrator">No office attached with you\nplease contact to \n<b>Administrator</b></string>
+    <string name="confirm">Confirm Password</string>
+    <string name="otp_txt" translatable="false">We have sent an <b>OTP</b> on your given mobile number</string>
+    <string name="verifying_your_mobile_number">Verifying your mobile number </string>
+    <string name="no_network">No internet connection found</string>
+
+</resources>

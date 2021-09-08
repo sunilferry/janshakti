@@ -1,0 +1,39 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#FD5354</item>
+        <item name="colorPrimaryDark">#FD5354</item>
+        <item name="colorAccent">#FD5354</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <style name="RobotoTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/montserrat</item>
+    </style>
+
+    <style name="CustomDialogAnimation" parent="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+        <item name="android:windowAnimationStyle">@style/custom_dialog</item>
+    </style>
+
+    <style name="custom_dialog">
+        <item name="android:windowEnterAnimation">@anim/translate_in</item>
+        <item name="android:windowExitAnimation">@anim/translate_out</item>
+        <item name="windowFixedHeightMajor">50%</item>
+        <item name="windowFixedHeightMinor">50%</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="TextLabel_login" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColorHint">@color/txtclr</item>
+        <item name="android:textColor">@color/txtclr</item>
+        <item name="android:textSize">12sp</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@color/txtclr</item>
+        <item name="colorControlNormal">@android:color/darker_gray</item>
+        <item name="colorControlActivated">@color/txtclr</item>
+        <item name="boxStrokeColor">@android:color/darker_gray</item>
+        <item name="boxStrokeWidth">0.1dp</item>
+    </style>
+</resources>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="row_height">44dp</dimen>
+    <dimen name="day_label_size_events_enabled">30dp</dimen>
+    <dimen name="day_label_focus_size_events_enabled">34dp</dimen>
+    <dimen name="day_label_size_events_disabled">38dp</dimen>
+    <dimen name="day_label_focus_size_events_disabled">42dp</dimen>
+
+
+    <dimen name="margin_0">0dp</dimen>
+    <dimen name="margin_1">1dp</dimen>
+    <dimen name="margin_2">2dp</dimen>
+    <dimen name="margin_3">3dp</dimen>
+    <dimen name="margin_4">4dp</dimen>
+    <dimen name="margin_5">5dp</dimen>
+    <dimen name="margin_6">6dp</dimen>
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="margin_16">16dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="margin_22">22dp</dimen>
+    <dimen name="margin_25">25dp</dimen>
+    <dimen name="margin_30">30dp</dimen>
+    <dimen name="margin_35">35dp</dimen>
+    <dimen name="margin_40">40dp</dimen>
+    <dimen name="margin_45">45dp</dimen>
+    <dimen name="margin_50">50dp</dimen>
+    <dimen name="margin_55">55dp</dimen>
+    <dimen name="margin_60">60dp</dimen>
+    <dimen name="margin_65">65dp</dimen>
+    <dimen name="margin_70">70dp</dimen>
+    <dimen name="margin_80">80dp</dimen>
+    <dimen name="margin_100">100dp</dimen>
+    <dimen name="margin_105">105dp</dimen>
+    <dimen name="margin_115">115dp</dimen>
+    <dimen name="margin_120">120dp</dimen>
+    <dimen name="margin_130">130dp</dimen>
+    <dimen name="margin_135">135dp</dimen>
+    <dimen name="margin_150">150dp</dimen>
+    <dimen name="margin_155">155dp</dimen>
+    <dimen name="margin_160">160dp</dimen>
+    <dimen name="margin_165">165dp</dimen>
+    <dimen name="margin_170">170dp</dimen>
+    <dimen name="margin_195">195dp</dimen>
+    <dimen name="margin_200">200dp</dimen>
+    <dimen name="margin_230">230dp</dimen>
+    <dimen name="margin_295">295dp</dimen>
+
+    <dimen name="text_size_8">8sp</dimen>
+    <dimen name="text_size_10">10sp</dimen>
+    <dimen name="text_size_11">11sp</dimen>
+    <dimen name="text_size_12">12sp</dimen>
+    <dimen name="text_size_13">13sp</dimen>
+    <dimen name="text_size_14">14sp</dimen>
+    <dimen name="text_size_15">15sp</dimen>
+    <dimen name="text_size_16">16sp</dimen>
+    <dimen name="text_size_18">18sp</dimen>
+    <dimen name="text_size_20">20sp</dimen>
+    <dimen name="text_size_22">22sp</dimen>
+    <dimen name="text_size_25">25sp</dimen>
+
+    <dimen name="image_width_125">125dp</dimen>
+    <dimen name="image_height_125">125dp</dimen>
+
+    <dimen name="width_200">200dp</dimen>
+    <dimen name="width_250">250dp</dimen>
+
+    <dimen name="activity_padding">16dp</dimen>
+    <dimen name="placeholder_image">50dp</dimen>
+    <dimen name="placeholder_text_height">8dp</dimen>
+    <dimen name="activity_padding_horizontal">16dp</dimen>
+    <dimen name="padding_10">10dp</dimen>
+    <dimen name="name">15dp</dimen>
+    <dimen name="chef">12dp</dimen>
+    <dimen name="timestamp">11dp</dimen>
+    <dimen name="description">15dp</dimen>
+    <dimen name="price">13dp</dimen>
+
+    <dimen name="check_stroke_width">10dp</dimen>
+    <dimen name="left5dp">5dp</dimen>
+    <dimen name="right5dp">5dp</dimen>
+    <dimen name="top5dp">5dp</dimen>
+    <dimen name="txt18sp">16sp</dimen>
+    <dimen name="padding5dp">5dp</dimen>
+    <dimen name="txt12sp">12sp</dimen>
+    <dimen name="padding10dp">10dp</dimen>
+    <dimen name="padding3dp">3dp</dimen>
+    <dimen name="left1dp">1dp</dimen>
+    <dimen name="h30dp">25dp</dimen>
+    <dimen name="w70dp">70dp</dimen>
+    <dimen name="txt10sp">10sp</dimen>
+    <dimen name="top50dp">20dp</dimen>
+    <dimen name="h90dp">75dp</dimen>
+    <dimen name="spiner60dp">40dp</dimen>
+    <dimen name="txt15sp">13sp</dimen>
+    <dimen name="w25dp">250dp</dimen>
+    <dimen name="cardh150dp">120dp</dimen>
+    <dimen name="w60dp">60dp</dimen>
+    <dimen name="h25dp">25dp</dimen>
+</resources>
