@@ -11,8 +11,8 @@
         android:background="@color/colorPrimary"
         android:layout_height="50dp">
         <ImageView
+            android:id="@+id/back_iv"
             android:layout_marginStart="16dp"
-            android:onClick="back"
             android:layout_width="wrap_content"
             android:src="@drawable/ic_arrow_back"
             android:layout_height="wrap_content" />

@@ -2,8 +2,6 @@ package apps.janshakti.activity;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -12,14 +10,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.android.volley.DefaultRetryPolicy;
-import com.android.volley.NetworkResponse;
-import com.android.volley.NoConnectionError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.TimeoutError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.JsonObject;
 
@@ -33,17 +23,17 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
 
     private static final String TAG = "Activity_ForgotPassword";
 
-    private EditText mobile_et, otp_et,password_et, confirm_et;
+    private EditText mobile_et, otp_et, password_et, confirm_et;
 
-    TextInputLayout til_pass,til_confirm;
+    TextInputLayout til_pass, til_confirm;
     ImageView back_iv;
-    TextView level_tv, title_tv, message_tv,second_tv;
-    LinearLayout verify_ll,timer_ll;
-    Button send_btn,resend_btn;
+    TextView level_tv, title_tv, message_tv, second_tv;
+    LinearLayout verify_ll, timer_ll;
+    Button send_btn, resend_btn;
 
     private CountDownTimer countDownTimer;
 
-    private String mobileNumber = "", password = "",otp="";
+    private String mobileNumber = "", password = "", otp = "";
 
 
     int viewValue = 0;
@@ -80,10 +70,10 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
 
     @Override
     public void onBackPressed() {
-        if(viewValue==0||viewValue==3){
+        if (viewValue == 0 || viewValue == 3) {
             finish();
-        }else {
-            viewValue=viewValue-1;
+        } else {
+            viewValue = viewValue - 1;
             handleView();
         }
     }
@@ -92,75 +82,75 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.back_iv:
-                if(viewValue==0||viewValue==3){
+                if (viewValue == 0 || viewValue == 3) {
                     finish();
-                }else {
-                    viewValue=viewValue-1;
+                } else {
+                    viewValue = viewValue - 1;
                     handleView();
                 }
 
                 break;
 
-                case R.id.resend_btn:
+            case R.id.resend_btn:
 
-                    if(mobileNumber.length()==10){
-                        JsonObject jsonObject=new JsonObject();
-                        jsonObject.addProperty("userId",mobileNumber);
-                        jsonObject.addProperty("cIPAddress",getIpAddress());
-                       if(isConnected()){
-                           viewValue=viewValue-1;
-                           showLoader();
-                           webApiCalls.sendOtp(this::onOtpResponse,jsonObject);
-                       }
-                    }else {
-                        mobile_et.setError(getString(R.string.invalid_mobile));
+                if (mobileNumber.length() == 10) {
+                    JsonObject jsonObject = new JsonObject();
+                    jsonObject.addProperty("userId", mobileNumber);
+                    jsonObject.addProperty("cIPAddress", getIpAddress());
+                    if (isConnected()) {
+                        viewValue = viewValue - 1;
+                        showLoader();
+                        webApiCalls.sendOtp(this::onOtpResponse, jsonObject);
                     }
+                } else {
+                    mobile_et.setError(getString(R.string.invalid_mobile));
+                }
                 break;
             case R.id.send_btn:
                 Log.d(TAG, "onClick: ");
 
-                if(viewValue==0){
-                    mobileNumber=mobile_et.getText().toString().trim();
-                    if(mobileNumber.length()==10){
-                        JsonObject jsonObject=new JsonObject();
-                        jsonObject.addProperty("userId",mobileNumber);
-                        jsonObject.addProperty("cIPAddress",getIpAddress());
+                if (viewValue == 0) {
+                    mobileNumber = mobile_et.getText().toString().trim();
+                    if (mobileNumber.length() == 10) {
+                        JsonObject jsonObject = new JsonObject();
+                        jsonObject.addProperty("userId", mobileNumber);
+                        jsonObject.addProperty("cIPAddress", getIpAddress());
                         showLoader();
-                        webApiCalls.sendOtp(this::onOtpResponse,jsonObject);
-                    }else {
+                        webApiCalls.sendOtp(this::onOtpResponse, jsonObject);
+                    } else {
                         mobile_et.setError(getString(R.string.invalid_mobile));
                     }
 
-                }else if(viewValue==1){
+                } else if (viewValue == 1) {
                     countDownTimer.cancel();
                     timer_ll.setVisibility(View.GONE);
                     resend_btn.setVisibility(View.GONE);
-                    otp=otp_et.getText().toString().trim();
-                    if(otp.length()==6){
-                        JsonObject jsonObject=new JsonObject();
-                        jsonObject.addProperty("userId",mobileNumber);
-                        jsonObject.addProperty("OTP",otp);
-                        jsonObject.addProperty("cIPAddress",getIpAddress());
+                    otp = otp_et.getText().toString().trim();
+                    if (otp.length() == 6) {
+                        JsonObject jsonObject = new JsonObject();
+                        jsonObject.addProperty("userId", mobileNumber);
+                        jsonObject.addProperty("OTP", otp);
+                        jsonObject.addProperty("cIPAddress", getIpAddress());
                         showLoader();
-                        webApiCalls.verifyOtp(this::onOtpVerifyResponse,jsonObject);
-                    }else {
+                        webApiCalls.verifyOtp(this::onOtpVerifyResponse, jsonObject);
+                    } else {
                         otp_et.setError(getString(R.string.invalid_otp));
                     }
-                }else if(viewValue==2){
+                } else if (viewValue == 2) {
 
-                    password=password_et.getText().toString();
-                    String confirm=confirm_et.getText().toString();
-                    if(password.length()<6){
+                    password = password_et.getText().toString();
+                    String confirm = confirm_et.getText().toString();
+                    if (password.length() < 6) {
                         password_et.setError(getString(R.string.password_should_greater_6_char));
-                    }else if(!password.equals(confirm)){
+                    } else if (!password.equals(confirm)) {
                         toast(getString(R.string.password_not_matched));
-                    }else {
-                        JsonObject jsonObject=new JsonObject();
-                        jsonObject.addProperty("UserId",mobileNumber);
-                        jsonObject.addProperty("NewPassword",password);
-                        jsonObject.addProperty("CIPAddress",getIpAddress());
+                    } else {
+                        JsonObject jsonObject = new JsonObject();
+                        jsonObject.addProperty("UserId", mobileNumber);
+                        jsonObject.addProperty("NewPassword", password);
+                        jsonObject.addProperty("CIPAddress", getIpAddress());
                         showLoader();
-                        webApiCalls.updatePassword(this::onUpdatePasswordResponse,jsonObject);
+                        webApiCalls.updatePassword(this::onUpdatePasswordResponse, jsonObject);
                     }
 
                 }
@@ -195,7 +185,7 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
             level_tv.setText("OTP");
             title_tv.setText(R.string.otp_verification);
             send_btn.setText(R.string.verify);
-            message_tv.setText(getString(R.string.enter_6_digit_otp)+mobileNumber);
+            message_tv.setText(getString(R.string.enter_6_digit_otp) + mobileNumber);
             startCountDownTimer();
 
         } else if (viewValue == 2) {
@@ -219,7 +209,7 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
         countDownTimer = new CountDownTimer(60000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                second_tv.setText((millisUntilFinished/1000)+"s");
+                second_tv.setText((millisUntilFinished / 1000) + "s");
             }
 
             @Override
@@ -246,12 +236,12 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
 
         hideLoader();
         try {
-            if(otpResponse.isStatus()){
+            if (otpResponse.isStatus()) {
                 viewValue = viewValue + 1;
                 handleView();
             }
             toast(otpResponse.getMessage());
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
     }
@@ -261,13 +251,13 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
         hideLoader();
         try {
             toast(otpResponse.getMessage());
-            if(otpResponse.isStatus()){
+            if (otpResponse.isStatus()) {
                 viewValue = viewValue + 1;
                 handleView();
                 finish();
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
     }
@@ -276,12 +266,12 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
     public void onOtpVerifyResponse(OtpResponse otpResponse) {
         hideLoader();
         try {
-            if(otpResponse.isStatus()){
+            if (otpResponse.isStatus()) {
                 viewValue = viewValue + 1;
                 handleView();
             }
             toast(otpResponse.getMessage());
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
     }

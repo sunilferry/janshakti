@@ -10,9 +10,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.provider.MediaStore;
-import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -26,10 +24,7 @@ import androidx.core.content.ContextCompat;
 
 import com.google.gson.JsonObject;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import apps.janshakti.BuildConfig;
 import apps.janshakti.R;
@@ -37,14 +32,14 @@ import apps.janshakti.activity.BaseActivity;
 import apps.janshakti.callbacks.FeedbackCallback;
 import apps.janshakti.model.OtpResponse;
 
-public class FeedbackActivity extends BaseActivity implements View.OnClickListener , FeedbackCallback {
+public class FeedbackActivity extends BaseActivity implements View.OnClickListener, FeedbackCallback {
 
     public static final int PICK_IMAGE = 1;
-    ImageView image_iv,add_iv;
+    ImageView image_iv, add_iv, back_iv;
     TextView app_tv, location_tv, suggestion_tv, other_tv;
     EditText message_et;
     Button submit_btn;
-    String type = "App Problem", message = "",imageBase64="";
+    String type = "App Problem", message = "", imageBase64 = "";
     Bitmap bitmap;
     ProgressBar progress_bar;
     private static final String TAG = "FeedbackActivity";
@@ -62,7 +57,9 @@ public class FeedbackActivity extends BaseActivity implements View.OnClickListen
         message_et = findViewById(R.id.message_et);
         add_iv = findViewById(R.id.add_iv);
         progress_bar = findViewById(R.id.progress_bar);
+        back_iv = findViewById(R.id.back_iv);
 
+        back_iv.setOnClickListener(this);
         image_iv.setOnClickListener(this);
         app_tv.setOnClickListener(this);
         location_tv.setOnClickListener(this);
@@ -72,9 +69,6 @@ public class FeedbackActivity extends BaseActivity implements View.OnClickListen
 
     }
 
-    public void back(View view) {
-        finish();
-    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -90,7 +84,7 @@ public class FeedbackActivity extends BaseActivity implements View.OnClickListen
                     try {
                         Uri uri = data.getData();
                         bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                        imageBase64=base64(bitmap);
+                        imageBase64 = base64(bitmap);
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
@@ -99,14 +93,13 @@ public class FeedbackActivity extends BaseActivity implements View.OnClickListen
                                 image_iv.setImageURI(uri);
                             }
                         });
-                        Log.d(TAG, "onActivityResult: "+imageBase64);
+                        Log.d(TAG, "onActivityResult: " + imageBase64);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
 
                 }
             });
-
 
 
         }
@@ -189,22 +182,25 @@ public class FeedbackActivity extends BaseActivity implements View.OnClickListen
                 message = message_et.getText().toString();
                 if (message.isEmpty()) {
                     message_et.setError("Enter your message");
-                }else {
+                } else {
                     showLoader();
-                    JsonObject jsonObject=new JsonObject();
-                    jsonObject.addProperty("FeedbackSubject",type);
-                    jsonObject.addProperty("FeedbackDescription",message);
-                    jsonObject.addProperty("ImagePath",imageBase64);
-                    jsonObject.addProperty("DeviceName",Build.MANUFACTURER+" "+Build.MODEL);
+                    JsonObject jsonObject = new JsonObject();
+                    jsonObject.addProperty("FeedbackSubject", type);
+                    jsonObject.addProperty("FeedbackDescription", message);
+                    jsonObject.addProperty("ImagePath", imageBase64);
+                    jsonObject.addProperty("DeviceName", Build.MANUFACTURER + " " + Build.MODEL);
                     jsonObject.addProperty("DeviceVersion", String.valueOf(Build.VERSION.SDK_INT));
                     jsonObject.addProperty("AppVersion", BuildConfig.VERSION_NAME);
-                    jsonObject.addProperty("CIPAddress",getIpAddress());
-                    Log.d(TAG, "onClick: "+appSession.getAccessToken());
-                    Log.d(TAG, "onClick: "+jsonObject);
-                    webApiCalls.submitFeedback(this::onFeedbackResponse,appSession.getAccessToken(),jsonObject);
+                    jsonObject.addProperty("CIPAddress", getIpAddress());
+                    Log.d(TAG, "onClick: " + appSession.getAccessToken());
+                    Log.d(TAG, "onClick: " + jsonObject);
+                    webApiCalls.submitFeedback(this::onFeedbackResponse, appSession.getAccessToken(), jsonObject);
 
                 }
 
+                break;
+            case R.id.back_iv:
+                finish();
                 break;
 
 
@@ -216,12 +212,12 @@ public class FeedbackActivity extends BaseActivity implements View.OnClickListen
         try {
             hideLoader();
             toast(otpResponse.getMessage());
-            bitmap=null;
-            imageBase64="";
+            bitmap = null;
+            imageBase64 = "";
             image_iv.setImageDrawable(null);
             add_iv.setVisibility(View.VISIBLE);
             message_et.setText("");
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
     }

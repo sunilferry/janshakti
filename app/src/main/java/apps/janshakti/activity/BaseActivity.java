@@ -12,11 +12,8 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
-import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.net.wifi.WifiManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Base64;
@@ -71,11 +68,11 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         if (webApiCalls == null) {
             webApiCalls = new WebApiCalls();
-            appSession = new AppSession(this);
+            appSession = new AppSession(BaseActivity.this);
         }
 
         if (loader == null) {
-            loader = new Dialog(this);
+            loader = new Dialog(BaseActivity.this);
             loader.setContentView(R.layout.custom_loader);
             loader.setCancelable(false);
             loader.setCanceledOnTouchOutside(false);
@@ -86,7 +83,7 @@ public class BaseActivity extends AppCompatActivity {
         }
 
         if (successDialog == null) {
-            successDialog = new Dialog(this);
+            successDialog = new Dialog(BaseActivity.this);
             successDialog.setContentView(R.layout.show_reading_success);
             successDialog.setCanceledOnTouchOutside(false);
             successDialog.setCancelable(false);
@@ -103,7 +100,7 @@ public class BaseActivity extends AppCompatActivity {
                     if (successDialog != null && successDialog.isShowing()) {
                         successDialog.dismiss();
                     }
-                }catch (Exception e){
+                } catch (Exception e) {
 
                 }
 
@@ -114,22 +111,18 @@ public class BaseActivity extends AppCompatActivity {
 
 
     protected void showLogoutAlert() {
-        androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(this);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(BaseActivity.this);
         builder.setMessage("Do you want to Logout from the app?")
                 .setCancelable(false)
                 .setPositiveButton("Yes", (dialog, id) -> {
-                  /*  AsyncTask.execute(new Runnable() {
-                        @Override
-                        public void run() {
-                            database.appDao().deleteAll();
-                        }
-                    });*/
+                    dialog.dismiss();
                     appSession.setImage("");
                     appSession.setLogin(false);
                     gotoActivityWithFinish(LoginActivity.class);
                 })
-                .setNegativeButton("No", (dialog, id) -> dialog.cancel());
-        androidx.appcompat.app.AlertDialog alert = builder.create();
+                .setNegativeButton("No", (dialog, id) -> dialog.dismiss());
+        AlertDialog alert = builder.create();
         alert.show();
     }
 
@@ -138,42 +131,42 @@ public class BaseActivity extends AppCompatActivity {
             if (loader != null && !loader.isShowing()) {
                 loader.show();
             }
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
 
     }
 
     protected void hideLoader() {
-       try {
+        try {
             if (loader != null && loader.isShowing()) {
-            loader.dismiss();
-        }
-       }catch (Exception e){
+                loader.dismiss();
+            }
+        } catch (Exception e) {
 
-       }
+        }
     }
 
     protected void toast(String msg) {
         try {
             Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
 
     }
 
     protected void gotoActivity(Class<?> actviity) {
-        Intent myIntent = new Intent(this, actviity);
+        Intent myIntent = new Intent(BaseActivity.this, actviity);
         startActivity(myIntent);
     }
 
     protected void gotoActivityWithFinish(Class<?> actviity) {
         try {
-            Intent myIntent = new Intent(this, actviity);
+            Intent myIntent = new Intent(BaseActivity.this, actviity);
             startActivity(myIntent);
             finishAffinity();
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
 
@@ -187,7 +180,7 @@ public class BaseActivity extends AppCompatActivity {
                 msg_tv.setText("Your attendance has been uploaded successfully on server");
                 successDialog.show();
             }
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
 
@@ -196,12 +189,12 @@ public class BaseActivity extends AppCompatActivity {
     protected void showFailed(String message) {
         try {
             if (successDialog != null && !successDialog.isShowing()) {
-            icon_iv.setImageResource(R.drawable.failed);
-            title_tv.setText("Attendance Failed");
-            msg_tv.setText(message);
-            successDialog.show();
-        }
-        }catch (Exception e){
+                icon_iv.setImageResource(R.drawable.failed);
+                title_tv.setText("Attendance Failed");
+                msg_tv.setText(message);
+                successDialog.show();
+            }
+        } catch (Exception e) {
 
         }
     }
@@ -217,7 +210,6 @@ public class BaseActivity extends AppCompatActivity {
             startActivity(Intent.createChooser(shareIntent, "choose one"));
         } catch (Exception e) {
             e.printStackTrace();
-            //e.toString();
         }
     }
 
@@ -244,8 +236,6 @@ public class BaseActivity extends AppCompatActivity {
                 sin(dLng / 2) * sin(dLng / 2);
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         float dist = (float) (earthRadius * c);
-        /*float temp = dist * 15 / 100;
-        dist = dist + temp;*/
         return dist;
     }
 
@@ -259,15 +249,12 @@ public class BaseActivity extends AppCompatActivity {
         boolean connected;
         try {
 
-            ConnectivityManager cm =
-                    (ConnectivityManager)getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-
+            ConnectivityManager cm = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-
-            connected= activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+            connected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
             return connected;
 
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
 
@@ -299,7 +286,7 @@ public class BaseActivity extends AppCompatActivity {
             Utils.createSimpleDialog1(this, getString(R.string.alert_text), getString(R.string.permission_camera_rationale11),
                     getString(R.string.reqst_permission),
                     () -> ActivityCompat.requestPermissions(this, new String[]{
-                                    Manifest.permission.CAMERA,
+
                                     Manifest.permission.READ_EXTERNAL_STORAGE,
                                     Manifest.permission.WRITE_EXTERNAL_STORAGE,
                                     Manifest.permission.ACCESS_FINE_LOCATION,
@@ -307,7 +294,7 @@ public class BaseActivity extends AppCompatActivity {
                             ASK_MULTIPLE_PERMISSION_REQUEST_CODE));
         } else {
             ActivityCompat.requestPermissions(this, new String[]{
-                            Manifest.permission.CAMERA,
+
                             Manifest.permission.READ_EXTERNAL_STORAGE,
                             Manifest.permission.WRITE_EXTERNAL_STORAGE,
                             Manifest.permission.ACCESS_FINE_LOCATION,
@@ -329,7 +316,7 @@ public class BaseActivity extends AppCompatActivity {
             i.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
             i.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
             startActivity(i);
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
 
@@ -342,29 +329,29 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     protected void showAlert(String msg, String type) {
-       try {
-           if (builder == null) {
-               builder = new AlertDialog.Builder(this);
-           }
-           builder.setMessage(msg);
-           builder.setPositiveButton("OK", (dialog, which) -> {
-               dialog.dismiss();
-               if (type.equals("permission")) {
-                   openSetting();
-               }
-           });
-           builder.create();
-           builder.show();
-       }catch (Exception e){
+        try {
+            if (builder == null) {
+                builder = new AlertDialog.Builder(BaseActivity.this);
+            }
+            builder.setMessage(msg);
+            builder.setPositiveButton("OK", (dialog, which) -> {
+                dialog.dismiss();
+                if (type.equals("permission")) {
+                    openSetting();
+                }
+            });
+            builder.create();
+            builder.show();
+        } catch (Exception e) {
 
-       }
+        }
     }
 
     protected String getIpAddress() {
         try {
-            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements();) {
+            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) {
                 NetworkInterface intf = en.nextElement();
-                for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements();) {
+                for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements(); ) {
                     InetAddress inetAddress = enumIpAddr.nextElement();
                     if (!inetAddress.isLoopbackAddress() && inetAddress instanceof Inet4Address) {
                         return inetAddress.getHostAddress();
@@ -373,7 +360,7 @@ public class BaseActivity extends AppCompatActivity {
             }
         } catch (SocketException ex) {
             ex.printStackTrace();
-            return  "";
+            return "";
         }
         return "";
     }
@@ -385,17 +372,10 @@ public class BaseActivity extends AppCompatActivity {
         try {
             List<Address> addresses = geocoder.getFromLocation(LATITUDE, LONGITUDE, 1);
             if (addresses != null) {
-                Address returnedAddress = addresses.get(0);
                 StringBuilder strReturnedAddress = new StringBuilder("");
-
-               /* for (int i = 0; i <= returnedAddress.getMaxAddressLineIndex(); i++) {
-                    strReturnedAddress.append(returnedAddress.getAddressLine(i)).append("\n");
-                }*/
                 strReturnedAddress.append(addresses.get(0).getAddressLine(0)); // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
                 Log.d(TAG, "getCompleteAddress: " + addresses.get(0).getLocality());
                 Log.d(TAG, "getCompleteAddress: " + addresses.get(0).getSubLocality());
-               /* strReturnedAddress.append(addresses.get(0).getSubLocality()+" ");
-                strReturnedAddress.append(addresses.get(0).getLocality());*/
 
                 strAdd = strReturnedAddress.toString();
                 Log.w(TAG, strReturnedAddress.toString());
@@ -418,22 +398,23 @@ public class BaseActivity extends AppCompatActivity {
 
     protected void buildAlertMessageNoGps() {
         try {
-            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            AlertDialog.Builder builder = new AlertDialog.Builder(BaseActivity.this);
             builder.setMessage("Your GPS seems to be disabled, do you want to enable it?")
                     .setCancelable(false)
                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         public void onClick(final DialogInterface dialog, final int id) {
+                            dialog.dismiss();
                             startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
                         }
                     })
                     .setNegativeButton("No", new DialogInterface.OnClickListener() {
                         public void onClick(final DialogInterface dialog, final int id) {
-                            dialog.cancel();
+                            dialog.dismiss();
                         }
                     });
-            final AlertDialog alert = builder.create();
+            AlertDialog alert = builder.create();
             alert.show();
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
 

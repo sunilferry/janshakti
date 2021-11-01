@@ -176,7 +176,7 @@ public class WebApiCalls {
         });
     }
 
-    public void getSalaryList(SalaryCallback salaryCallback, String token) {
+    public void getSalaryList(SalaryCallback salaryCallback,TimeOutCallback timeOutCallback, String token) {
         Call<SalaryResponse> call = RetrofitClient.getInstance().getMyApi().getSalaryList("Bearer " + token);
         call.enqueue(new Callback<SalaryResponse>() {
             @Override
@@ -187,6 +187,7 @@ public class WebApiCalls {
                         salaryCallback.onSalaryResponse(response.body());
                     }
                 } catch (Exception e) {
+                    timeOutCallback.onTimeOut("");
                     Log.e(TAG, "onResponse: " + e.getLocalizedMessage());
 
                 }
@@ -195,6 +196,7 @@ public class WebApiCalls {
             @Override
             public void onFailure(@NotNull Call<SalaryResponse> call, @NotNull Throwable t) {
                 Log.e(TAG, "onFailure: " + call.request().url() + " " + t.getLocalizedMessage());
+                timeOutCallback.onTimeOut("");
 
             }
         });

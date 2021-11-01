@@ -4,10 +4,8 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -20,7 +18,6 @@ import com.google.gson.JsonObject;
 import java.util.Objects;
 
 import apps.janshakti.R;
-import apps.janshakti.allactivities.DeviceInfoActivity;
 import apps.janshakti.allactivities.LocationInfoActivity;
 import apps.janshakti.allactivities.MainActivity;
 import apps.janshakti.callbacks.LoginCallback;
@@ -88,7 +85,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
             }
         } else if (v.getId() == R.id.btn_forgot_password) {
             gotoActivity(ForgotPasswordActivity.class);
-        }else if (v.getId() == R.id.location_ll) {
+        } else if (v.getId() == R.id.location_ll) {
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                     || ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                 if (ActivityCompat.shouldShowRequestPermissionRationale(LoginActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)) {
@@ -96,10 +93,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                 } else {
                     requestAllPermission();
                 }
-            } else if (isConnected()){
+            } else if (isConnected()) {
                 gotoActivity(LocationInfoActivity.class);
 
-            }else {
+            } else {
                 showAlert(getString(R.string.no_internet), "");
             }
 

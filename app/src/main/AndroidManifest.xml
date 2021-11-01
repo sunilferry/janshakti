@@ -62,6 +62,12 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
             />
+
+        <activity android:name=".activity.BaseActivity"
+            android:configChanges="keyboard|screenLayout|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"
+            />
         <activity
             android:name=".allactivities.SalaryDetailActivity"
             android:configChanges="keyboard|screenLayout|screenSize"

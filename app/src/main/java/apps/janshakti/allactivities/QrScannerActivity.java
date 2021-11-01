@@ -14,6 +14,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,8 +23,11 @@ import androidx.core.app.ActivityCompat;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.vision.CameraSource;
 import com.google.android.gms.vision.Detector;
@@ -35,8 +39,7 @@ import java.io.IOException;
 import apps.janshakti.R;
 import apps.janshakti.activity.BaseActivity;
 
-public class QrScannerActivity extends BaseActivity implements View.OnClickListener, GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener, LocationListener, android.location.LocationListener {
+public class QrScannerActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = "QrScannerActivity";
     SurfaceView surfaceView;
@@ -45,29 +48,77 @@ public class QrScannerActivity extends BaseActivity implements View.OnClickListe
     private static final int REQUEST_CAMERA_PERMISSION = 201;
     Button skip_btn,scan_btn;
     TextView error_tv;
+    ImageView back_iv;
     String intentData = "";
     Handler handler = new Handler(Looper.getMainLooper());
 
-    GoogleApiClient mGoogleApiClient;
-
-    private LocationRequest mLocationRequest;
-    private long UPDATE_INTERVAL = 1000;  /* 15 secs */
-    private long FASTEST_INTERVAL = 500; /* 5 secs */
-
-    private LocationManager locationManager;
-    int checkLocation=0;
     double latitude = 0.0, longitude = 0.0,offlatitude = 0.0, offlongitude = 0.0,distnearest;
+
+
+
+    private FusedLocationProviderClient fusedLocationClient;
+    private LocationCallback locationCallback;
+    LocationRequest locationRequest;
+
+    protected void createLocationRequest() {
+        locationRequest = LocationRequest.create();
+        locationRequest.setInterval(300000);
+        locationRequest.setFastestInterval(15000);
+        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+    }
+
+    private void startLocationUpdates2() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                || ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED ||
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(QrScannerActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)) {
+                requestAllPermission();
+            } else {
+                showAlert(getString(R.string.permission_camera_rationale11), "permission");
+            }
+
+        } else {
+            showLoader();
+            fusedLocationClient.requestLocationUpdates(locationRequest,
+                    locationCallback,
+                    Looper.getMainLooper());
+        }
+    }
+
+    private void stopLocationUpdates2() {
+        fusedLocationClient.removeLocationUpdates(locationCallback);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        stopLocationUpdates2();
+        cameraSource.release();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        startLocationUpdates2();
+    }
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr_scanner);
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        createLocationRequest();
+
         surfaceView = findViewById(R.id.surfaceView);
         skip_btn = findViewById(R.id.skip_btn);
         scan_btn = findViewById(R.id.scan_btn);
         error_tv = findViewById(R.id.error_tv);
+        back_iv = findViewById(R.id.back_iv);
         skip_btn.setOnClickListener(this);
         scan_btn.setOnClickListener(this);
+        back_iv.setOnClickListener(this);
         barcodeDetector = new BarcodeDetector.Builder(this)
                 .setBarcodeFormats(Barcode.QR_CODE)
                 .build();
@@ -80,15 +131,29 @@ public class QrScannerActivity extends BaseActivity implements View.OnClickListe
         createSurface();
         createBarCodeDetector();
 
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-                && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            requestAllPermission();
-            return;
-        }
+
+        locationCallback = new LocationCallback() {
+            @Override
+            public void onLocationResult(LocationResult locationResult) {
+                hideLoader();
+                if (locationResult == null) {
+                    startLocationUpdates2();
+                    return;
+                }
+                for (Location location : locationResult.getLocations()) {
+                    Log.d(TAG, "onLocationResult: " + location);
 
 
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        getLocation();
+                    latitude = location.getLatitude();
+                    longitude = location.getLongitude();
+                }
+            }
+        };
+
+        startLocationUpdates2();
+
+
+
 
     }
     private void createBarCodeDetector(){
@@ -164,109 +229,6 @@ public class QrScannerActivity extends BaseActivity implements View.OnClickListe
             }
         });
     }
-    @Override
-    protected void onStart() {
-        super.onStart();
-        checkLocation=0;
-        if (mGoogleApiClient != null) {
-            mGoogleApiClient.connect();
-        }
-    }
-
-    private void getLocation() {
-        showLoader();
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) !=
-                PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) { return; }
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .addApi(LocationServices.API)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .build();
-    }
-
-
-    @Override
-    public void onLocationChanged(Location location) {
-
-        hideLoader();
-        if (checkLocation!=2 && location != null) {
-            checkLocation++;
-            Log.d(TAG, "onLocationChanged: "+ location.getLatitude());
-            latitude = location.getLatitude();
-            longitude = location.getLongitude();
-
-            stopLocationUpdates();
-            mGoogleApiClient.disconnect();
-            if(checkLocation==2){
-                locationManager.removeUpdates(QrScannerActivity.this);
-            }
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    if (ActivityCompat.checkSelfPermission(QrScannerActivity.this,
-                            Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-                            ActivityCompat.checkSelfPermission(QrScannerActivity.this,
-                                    Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                        return;
-                    }
-
-                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, QrScannerActivity.this);
-                }
-            },200);
-
-        }
-
-    }
-
-    @Override
-    public void onConnected(@Nullable Bundle bundle) {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            return;
-        }
-        startLocationUpdates();
-    }
-
-    @Override
-    public void onConnectionSuspended(int i) {
-    }
-
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
-    }
-    protected void startLocationUpdates() {
-        mLocationRequest = new LocationRequest();
-        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        mLocationRequest.setInterval(UPDATE_INTERVAL);
-        mLocationRequest.setFastestInterval(FASTEST_INTERVAL);
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
-            requestAllPermission();
-            return;
-        }
-
-        try {
-
-            LocationServices.FusedLocationApi.requestLocationUpdates(
-                    mGoogleApiClient, mLocationRequest, this);
-
-
-        } catch (Exception e) {
-            Log.d(TAG, "startLocationUpdates: " + e.getLocalizedMessage());
-        }
-
-    }
-
-    public void stopLocationUpdates() {
-        if (mGoogleApiClient.isConnected()) {
-            LocationServices.FusedLocationApi
-                    .removeLocationUpdates(mGoogleApiClient,this);
-            mGoogleApiClient.disconnect();
-        }
-    }
-
 
 
     private void findNearest() {
@@ -276,7 +238,8 @@ public class QrScannerActivity extends BaseActivity implements View.OnClickListe
                 distnearest = distance(latitude, longitude,offlatitude,offlongitude);
 
                 if (distnearest < 100) {
-                    gotoActivityWithFinish(PunchAttendanceActivity.class);
+                    gotoActivity(PunchAttendanceActivity.class);
+                    finish();
                 } else {
                     error_tv.setText(R.string.out_of_office);
                     toast(getString(R.string.out_of_office));
@@ -289,15 +252,6 @@ public class QrScannerActivity extends BaseActivity implements View.OnClickListe
 
 
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        cameraSource.release();
-    }
-
-    public void back(View view) {
-        finish();
-    }
 
 
     @Override
@@ -326,8 +280,9 @@ public class QrScannerActivity extends BaseActivity implements View.OnClickListe
                 }catch (Exception e){
 
                 }
-
-
+                break;
+            case R.id.back_iv:
+                finish();
                 break;
         }
     }

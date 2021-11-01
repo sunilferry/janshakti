@@ -13,10 +13,11 @@ import apps.janshakti.R;
 import apps.janshakti.activity.BaseActivity;
 import apps.janshakti.adapter.SalaryListAdapter;
 import apps.janshakti.callbacks.SalaryCallback;
+import apps.janshakti.callbacks.TimeOutCallback;
 import apps.janshakti.model.salary_model.DataItem;
 import apps.janshakti.model.salary_model.SalaryResponse;
 
-public class SalaryListActivity extends BaseActivity implements SalaryCallback {
+public class SalaryListActivity extends BaseActivity implements SalaryCallback , TimeOutCallback {
     TextView name_tv;
     ImageView back_iv;
     RecyclerView recyclerView;
@@ -35,7 +36,7 @@ public class SalaryListActivity extends BaseActivity implements SalaryCallback {
             }
         });
         showLoader();
-        webApiCalls.getSalaryList(this::onSalaryResponse, appSession.getAccessToken());
+        webApiCalls.getSalaryList(this::onSalaryResponse,this::onTimeOut ,appSession.getAccessToken());
     }
 
     @Override
@@ -84,5 +85,10 @@ public class SalaryListActivity extends BaseActivity implements SalaryCallback {
             no_data_ll.setVisibility(View.VISIBLE);
         }
 
+    }
+
+    @Override
+    public void onTimeOut(String from) {
+        hideLoader();
     }
 }
