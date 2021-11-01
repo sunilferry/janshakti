@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="Gradle: com.huawei.hms:ml-computer-vision-livenessdetection-nodynamic-model:2.2.0.300@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fc0441671754aed1c801a65f67f6e1ba/jetified-ml-computer-vision-livenessdetection-nodynamic-model-2.2.0.300/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2d7fcf9bdd146b07a1ead92fc502b23d/jetified-ml-computer-vision-livenessdetection-nodynamic-model-2.2.0.300/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/47dd709d624989af834da79ddb51b705/jetified-ml-computer-vision-livenessdetection-nodynamic-model-2.2.0.300/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b55be7d3c41466cfa798a6abb08d1cd6/jetified-ml-computer-vision-livenessdetection-nodynamic-model-2.2.0.300/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9c4f716c2531b9ccbb0b6cf04b7c6d76/jetified-ml-computer-vision-livenessdetection-nodynamic-model-2.2.0.300/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d50e603de3bdca61f88fa356cf48e370/jetified-ml-computer-vision-livenessdetection-nodynamic-model-2.2.0.300/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9c4f716c2531b9ccbb0b6cf04b7c6d76/jetified-ml-computer-vision-livenessdetection-nodynamic-model-2.2.0.300/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9c4f716c2531b9ccbb0b6cf04b7c6d76/jetified-ml-computer-vision-livenessdetection-nodynamic-model-2.2.0.300/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.huawei.hms/ml-computer-vision-livenessdetection-nodynamic-model/2.2.0.300/da39a3ee5e6b4b0d3255bfef95601890afd80709/ml-computer-vision-livenessdetection-nodynamic-model-2.2.0.300-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.huawei.hms/ml-computer-vision-livenessdetection-nodynamic-model/2.2.0.300/da39a3ee5e6b4b0d3255bfef95601890afd80709/ml-computer-vision-livenessdetection-nodynamic-model-2.2.0.300-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

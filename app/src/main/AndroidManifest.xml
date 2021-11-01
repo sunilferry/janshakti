@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="apps.attendancemanagementsystem">
+    package="apps.janshakti">
+
+    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
 
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.location.gps" />
+
+
 
     <queries>
         <intent>
@@ -27,44 +35,100 @@
 
     <application
         android:allowBackup="true"
-        android:hardwareAccelerated="false"
-        android:icon="@drawable/app_logo"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:largeHeap="true"
-        android:networkSecurityConfig="@xml/network_security_config"
         android:requestLegacyExternalStorage="true"
-        android:roundIcon="@drawable/app_logo"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        tools:ignore="GoogleAppIndexingWarning"
-        tools:targetApi="q">
+        tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name="apps.attendancemanagementsystem.activity.SplashActivity">
+        <activity
+            android:name=".activity.SplashActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+        <activity android:name=".allactivities.FeedbackActivity"
+            android:configChanges="keyboard|screenLayout|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"
+            />
+        <activity
+            android:name=".allactivities.SalaryDetailActivity"
+            android:configChanges="keyboard|screenLayout|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".allactivities.SalaryListActivity"
+            android:configChanges="keyboard|screenLayout|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".allactivities.DeviceInfoActivity"
+            android:configChanges="keyboard|screenLayout|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".allactivities.LocationInfoActivity"
+            android:configChanges="keyboard|screenLayout|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:configChanges="keyboard|screenLayout|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".allactivities.MainActivity"
+            android:configChanges="keyboard|screenLayout|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".allactivities.PunchAttendanceActivity"
+            android:configChanges="keyboard|screenLayout|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".allactivities.AttendanceListActivity"
+            android:configChanges="keyboard|screenLayout|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".allactivities.ProfileActivity"
+            android:configChanges="keyboard|screenLayout|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".allactivities.ChangePasswordActivity"
+            android:configChanges="keyboard|screenLayout|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activity.ForgotPasswordActivity"
+            android:configChanges="keyboard|screenLayout|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".allactivities.QrScannerActivity"
+            android:configChanges="keyboard|screenLayout|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="barcode" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-        <activity
-            android:name="apps.attendancemanagementsystem.activity.LoginActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity android:name="apps.attendancemanagementsystem.allactivities.Activity_MainDashboard" />
-        <activity android:name="apps.attendancemanagementsystem.allactivities.Activity_Punch_Attendence" />
-        <activity android:name="apps.attendancemanagementsystem.allactivities.Activity_PreviousAttendence" />
-        <activity android:name="apps.attendancemanagementsystem.allactivities.Activity_Profile"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity android:name="apps.attendancemanagementsystem.allactivities.Activity_ChangePassword"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".allactivities.Activity_Punch_Others_Attendence"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".activity.Activity_ForgotPassword"
-            android:windowSoftInputMode="stateHidden"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -75,14 +139,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
-
-
-        <receiver
-            android:name=".activity.Activity_ForgotPassword$MySMSBroadcastReceiver"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED" />
-            </intent-filter>
-        </receiver>
     </application>
+
 </manifest>

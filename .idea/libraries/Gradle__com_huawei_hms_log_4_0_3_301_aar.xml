@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="Gradle: com.huawei.hms:log:4.0.3.301@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/600cc9503067d54fdfd30c00239c3e46/jetified-log-4.0.3.301/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/486b52faa7863e3b0a03483f19935f93/jetified-log-4.0.3.301/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e1db3423bc0151bea25f2cae7f1ed164/jetified-log-4.0.3.301/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/844dea3514d37e37944cd6edaa891bac/jetified-log-4.0.3.301/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/af57b99049ebbbdd62f5526cd0ac93dd/jetified-log-4.0.3.301/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/844dea3514d37e37944cd6edaa891bac/jetified-log-4.0.3.301/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/844dea3514d37e37944cd6edaa891bac/jetified-log-4.0.3.301/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.huawei.hms/log/4.0.3.301/da39a3ee5e6b4b0d3255bfef95601890afd80709/log-4.0.3.301-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.huawei.hms/log/4.0.3.301/da39a3ee5e6b4b0d3255bfef95601890afd80709/log-4.0.3.301-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

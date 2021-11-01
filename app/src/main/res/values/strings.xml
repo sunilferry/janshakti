@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name" translatable="false">Attendance Management System</string>
-    <string name="no_internet" translatable="false">Please turn on your internet connection..</string>
+    <string name="app_name" translatable="false">जन शक्ति</string>
+    <string name="turn_on_internet" translatable="false">Please turn on your internet connection..</string>
     <string name="n_a" translatable="false">N/A</string>
     <string name="reported_by" translatable="false">Reported By</string>
     <string name="comment" translatable="false">Comment</string>
@@ -11,31 +11,15 @@
     <string name="dont" translatable="false">Don\'t have an account?</string>
     <string name="sing_up" translatable="false">Registration</string>
     <string name="registration" translatable="false">New User Registration</string>
-    <string name="select_mandi" translatable="false">Select Mandi</string>
-    <string name="select_section" translatable="false">Select Section</string>
-    <string name="select_position" translatable="false">Select Position</string>
-    <string name="verification_code" translatable="false">Verification Code</string>
-    <string name="enter_verification_code" translatable="false">Enter 4-Digit Verification Code</string>
-    <string name="otp_resend_in" translatable="false">One-Time Password will be resend in</string>
-    <string name="resend" translatable="false">Didn\'t get <b>OTP</b> then press Resend</string>
-    <string name="txt_resend" translatable="false"><u>Resend</u></string>
-    <string name="please_type_the_verification_code_sent_to_below_given_mobile_number" translatable="false">Please type the verification code sent to below given Mobile Number</string>
-    <string name="new_events" translatable="false">Dashboard</string>
     <string name="events_forwarded_to_ro" translatable="false">Previous Attendance</string>
-    <string name="events_from_ro" translatable="false">Events From RO</string>
-    <string name="events_history" translatable="false">Events History</string>
-    <string name="master_list" translatable="false">Master List</string>
-    <string name="forester_master_list" translatable="false">Forester Master List</string>
-    <string name="beat_master_list" translatable="false">Beat Master List</string>
+
     <string name="profile" translatable="false">Profile</string>
-    <string name="change_password" translatable="false" tools:ignore="DuplicateDefinition"><u>Change Password</u></string>
+    <string name="change_password" translatable="false" tools:ignore="DuplicateDefinition">Change Password</string>
     <string name="logout" translatable="false">Logout</string>
     <string name="share_app" translatable="false">Share App</string>
     <string name="rate_app" translatable="false">Rate App</string>
     <string name="privacy_policy" translatable="false">Privacy Policy</string>
-    <string name="you_re_20_meters_away_from_you_mandi" translatable="false">You\'re 20 Meters away from your Office</string>
     <string name="make_attendance" translatable="false"><b><u>Punch Attendance</u></b></string>
-    <string name="view_attendance" translatable="false">View Attendance</string>
     <string name="incorrect_login">Login credentials that you have entered are incorrect.</string>
     <string name="material_calendar_monday">M</string>
     <string name="material_calendar_tuesday">T</string>
@@ -70,18 +54,122 @@
         <item>December</item>
     </array>
     <string name="save_amp_next"><![CDATA[Save & Next]]></string>
-    <string name="update">The current version this Application is no longer supportable. We recommends that you update to the latest version. You can keep using the app while downloading the update \n\n<b>Please update the newer version</b></string>
     <string name="got_it">Got It</string>
     <string name="material_calendar_today_button">Today</string>
     <string name="material_calendar_positive_button">OK</string>
     <string name="material_calendar_negative_button">Cancel</string>
     <string name="ten_meters_tv">(To mark your attendance you better should be in <b>100 Mtrs</b> radius of your Office)</string>
-    <string name="start_end_date">** Please select <b>Start and End Date</b> to see your Attendance List with Date and Time</string>
-    <string name="others_attendance">** Please enter <b>Employee Id</b> for whom you want to <b>Punch Attendance</b></string>
+    <string name="start_end_date">Please select <b>Start and End Date</b> to see your Attendance List with Date and Time</string>
+
     <string name="no_office_attached_with_you_nplease_contact_to_nadministrator">No office attached with you\nplease contact to \n<b>Administrator</b></string>
     <string name="confirm">Confirm Password</string>
     <string name="otp_txt" translatable="false">We have sent an <b>OTP</b> on your given mobile number</string>
     <string name="verifying_your_mobile_number">Verifying your mobile number </string>
-    <string name="no_network">No internet connection found</string>
+    <string name="no_internet">No internet connection found</string>
+    <string name="request_permission">जन शक्ति need Camera Permission</string>
+    <string name="welcome_back">WELCOME BACK,</string>
+    <string name="log_in">LOG IN</string>
+    <string name="login">Login</string>
+    <string name="title">Directorate General of Medical\nEducation and Training U. P.</string>
+    <string name="attendance_management_system">Attendance Management System</string>
+    <string name="enter_your_new_password">Enter your new password below, we\'re just being extra safe</string>
+    <string name="old_password">Old Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="app_version">App Version</string>
+    <string name="internet_speed">Internet Speed</string>
+    <string name="longitude">Longitude</string>
+    <string name="latitude">Latitude</string>
+    <string name="android_version">Android Version</string>
+    <string name="model">Model</string>
+    <string name="device_name">Device Name</string>
+    <string name="welcome_to_device_information">Welcome to device information.</string>
+    <string name="user_id">User ID</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="forgot_password_1">Forgot Password</string>
+    <string name="technical_support">Technical Support:</string>
+    <string name="mobile_number">+91-7607370200</string>
+    <string name="scan_qr">SCAN QR</string>
+    <string name="good_day">Good Day,</string>
+    <string name="guest">Guest</string>
+    <string name="view_attendance">View Attendance</string>
+    <string name="punch_attendance">Punch Attendance</string>
+    <string name="daily_punch_your_attendance">Daily Punch your attendance</string>
+    <string name="have_a_nice_day">Have a nice day.....</string>
+    <string name="view_your_daily_attendance">(View your Daily Attendance)</string>
+    <string name="salary_details">Salary Details</string>
+    <string name="see_your_salary_details">(See your salary details)</string>
+    <string name="today_s_attendance">Today\'s Attendance</string>
+    <string name="you_have_nt_punch_attendance_yet">You have\'nt punch attendance yet</string>
+    <string name="your_photo_is_not_updated">Your profile photo is not updated! Please contact to administrator.</string>
+    <string name="please_select_punch_type">Please select Punch In/Out</string>
+    <string name="unable_to_find_location">Unable to find your location, Please try again!</string>
+    <string name="something_is_wrong">Something is wrong! Please try again.</string>
+    <string name="face_not_match">Your face is not matched, Please try again!</string>
+    <string name="timeout">Connection time out</string>
+    <string name="failed_to_connect">Failed to connect the server</string>
+    <string name="enter_old_password">Enter old password</string>
+    <string name="enter_new_password">Enter new password</string>
+    <string name="enter_confirm_password">Enter confirm new password</string>
+    <string name="password_not_matched">Entered confirm password doesn\'t match with above password</string>
+    <string name="invalid_mobile">Enter valid mobile</string>
+    <string name="invalid_otp">Enter valid OTP</string>
+    <string name="password_should_greater_6_char">Password should be greater than 6 character</string>
+    <string name="enter_associated_mobile">Enter the mobile associated with your account \nand we\'ll send and OTP to reset password.</string>
+    <string name="enter_6_digit_otp">Enter the 6 digit code sent to your\nmobile number +91 </string>
+    <string name="otp_verification">OTP Verification</string>
+    <string name="verify">Verify</string>
+    <string name="new_password">New Password</string>
+    <string name="create_password">Create New Password</string>
+    <string name="different_password">Your new password must be different\nfrom previous used passwords.</string>
+    <string name="submit">Submit</string>
+    <string name="associated_mobile">Associated Mobile Number</string>
+    <string name="wrong_photo">Wrong Photo.\nPlease try again</string>
+    <string name="customer_support">Customer Support</string>
+    <string name="optional">(optional)</string>
+    <string name="enter_your_message">Enter your message</string>
+    <string name="screenshot">Screenshot</string>
+    <string name="require">(require)</string>
+    <string name="leave_a_message">Leave a message</string>
+    <string name="other">Other</string>
+    <string name="suggestion">Suggestion</string>
+    <string name="location_problem">Location Problem</string>
+    <string name="app_problem">App Problem</string>
+    <string name="otp_successfully_verified">OTP Successfully Verified</string>
+    <string name="enter_mobile_number">Enter Mobile Number</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="re_send_otp_in">Re-Send OTP in :</string>
+    <string name="send">Send</string>
+    <string name="can_not_empty">Can\'t Empty</string>
+    <string name="punch_nattendance">Punch\nAttendance</string>
+    <string name="view_nattendance">View\nAttendance</string>
+    <string name="welcome_to_your_profile">Welcome to your profile</string>
+    <string name="user_name">User Name</string>
+    <string name="email">Email</string>
+    <string name="mobile_number_1">Mobile Number</string>
+    <string name="help_amp_support"><![CDATA[Help & Support]]></string>
+    <string name="no_near_office_found">No near office found</string>
+    <string name="punch_in">Punch In</string>
+    <string name="punch_out">Punch Out</string>
+    <string name="capture_selfie">Please capture selfie to mark your Attendance</string>
+    <string name="slow_internet">Your internet connection is very poor, Either try in good network area or please wait until uploading.</string>
+    <string name="punch_attendance_by_qr_code">Punch Attendance by QR Code</string>
+    <string name="tap_to_scan_again">Tap to scan again</string>
+    <string name="step_1">STEP-1</string>
+    <string name="u25cf_scan_qr_code_by_qr_camera_view">● Scan QR Code by QR Camera View</string>
+    <string name="u25cf_make_attendance">● Make Attendance</string>
+    <string name="u25cf_capture_selfie_and_click_on_submit_button">● Capture Selfie and Click on Submit Button</string>
+    <string name="skip">Skip</string>
+    <string name="step_3">STEP-3</string>
+    <string name="step_2">STEP-2</string>
+    <string name="invalid_qr">Invalid QR Code</string>
+    <string name="out_of_office">Your are not in office area</string>
+    <string name="welcome_to_pay_summary_details">Welcome to pay summary details</string>
+    <string name="data_not_available">Data Not Available!</string>
+    <string name="date">Date : </string>
+    <string name="punch_type">Punch Type : </string>
+    <string name="success">Success</string>
+    <string name="my_location">My Current Location</string>
+
 
 </resources>

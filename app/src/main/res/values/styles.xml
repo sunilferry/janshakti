@@ -1,11 +1,11 @@
 <resources>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">#FD5354</item>
-        <item name="colorPrimaryDark">#FD5354</item>
+        <item name="colorPrimary">#107ff9</item>
+        <item name="colorPrimaryDark">#107ff9</item>
         <item name="colorAccent">#FD5354</item>
         <item name="android:windowDisablePreview">true</item>
+        <item name="android:navigationBarColor">@color/colorPrimary</item>
     </style>
 
     <style name="RobotoTextViewStyle" parent="android:Widget.TextView">

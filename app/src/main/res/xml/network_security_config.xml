@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
-
-    <domain-config cleartextTrafficPermitted="false">
-        <domain includeSubdomains="true">amsnhm.in</domain>
+    <domain-config>
+        <domain includeSubdomains="true">janshakti.upsdc.gov.in/</domain>
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="user" />
+        </trust-anchors>
     </domain-config>
 
-    <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="true">mysms.msgclub.net</domain>
-    </domain-config>
-
-    <domain-config cleartextTrafficPermitted="false">
-        <domain includeSubdomains="true">play.google.com</domain>
-    </domain-config>
 </network-security-config>

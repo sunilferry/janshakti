@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="Gradle: com.huawei.hms:ml-computer-vision-livenessdetection-inner:2.2.0.300@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b59b1f368375f52da1357e7bbd1db102/jetified-ml-computer-vision-livenessdetection-inner-2.2.0.300/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f82730764c490942a5fbe74d406dbfd1/jetified-ml-computer-vision-livenessdetection-inner-2.2.0.300/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e461ce1be9ef369aa8e603392d125213/jetified-ml-computer-vision-livenessdetection-inner-2.2.0.300/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/161b0ee7857c19b0f2938cb427dda5c7/jetified-ml-computer-vision-livenessdetection-inner-2.2.0.300/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5a089a78cce9bb5e8d90a75d632a1509/jetified-ml-computer-vision-livenessdetection-inner-2.2.0.300/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d20345c7b3a450836feda47825fd45d3/jetified-ml-computer-vision-livenessdetection-inner-2.2.0.300/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5a089a78cce9bb5e8d90a75d632a1509/jetified-ml-computer-vision-livenessdetection-inner-2.2.0.300/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5a089a78cce9bb5e8d90a75d632a1509/jetified-ml-computer-vision-livenessdetection-inner-2.2.0.300/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

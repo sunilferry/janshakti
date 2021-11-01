@@ -3,6 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
 
+
+
+    <item
+        android:id="@+id/profile"
+        android:title="Profile"
+        app:showAsAction="always"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/device_info"
+        android:title="Device Info"
+        app:showAsAction="always"
+        tools:ignore="HardcodedText" />
     <item
         android:id="@+id/privacy_policy"
         android:title="Privacy Policy"

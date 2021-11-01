@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="Gradle: com.huawei.hms:stats:4.0.3.301@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e6f9cbd3e897ff507e2ee5c82e3fd2b4/jetified-stats-4.0.3.301/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9f5c79d8152b8b68c239cf845016090a/jetified-stats-4.0.3.301/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f7f4c7f8580bdbf925d0d3f9f4ea45a6/jetified-stats-4.0.3.301/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/86c0e0fa326d2d7fa78e0901730acc53/jetified-stats-4.0.3.301/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/156a788c33e04a60b0051f5f63b13ab0/jetified-stats-4.0.3.301/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/86c0e0fa326d2d7fa78e0901730acc53/jetified-stats-4.0.3.301/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/86c0e0fa326d2d7fa78e0901730acc53/jetified-stats-4.0.3.301/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.huawei.hms/stats/4.0.3.301/da39a3ee5e6b4b0d3255bfef95601890afd80709/stats-4.0.3.301-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.huawei.hms/stats/4.0.3.301/da39a3ee5e6b4b0d3255bfef95601890afd80709/stats-4.0.3.301-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

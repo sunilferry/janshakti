@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="Gradle: com.huawei.hmf:tasks:1.4.1.300@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/41a2e368047db409b4182cc1e814ad3a/jetified-tasks-1.4.1.300/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/506f80e8ba17614d80b6cce8159c2578/jetified-tasks-1.4.1.300/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a26ec7cd8c73809698034c59bbe5eaf8/jetified-tasks-1.4.1.300/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/10b49ed6c01620d15700bd71ad9b40b8/jetified-tasks-1.4.1.300/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f95adf01a7903f7302691142a39b09ca/jetified-tasks-1.4.1.300/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/90089237f49b09b88bff5842ab052ae7/jetified-tasks-1.4.1.300/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f95adf01a7903f7302691142a39b09ca/jetified-tasks-1.4.1.300/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f95adf01a7903f7302691142a39b09ca/jetified-tasks-1.4.1.300/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

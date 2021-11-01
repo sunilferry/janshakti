@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FD5354</color>
-    <color name="colorPrimaryDark">#FD5354</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimary">#107ff9</color>
+    <color name="colorPrimaryDark">#0A54A4</color>
+    <color name="colorAccent">#107ff9</color>
     <color name="enabled_color">#F7FE2E</color>
     <color name="disabled_color">#787878</color>
     <color name="brown_color">#362523</color>
@@ -65,7 +65,7 @@
     <color name="itemFocusedColor">#1A000000</color>
     <color name="colorPrimaryLight">#6e6aff</color>
     <color name="purple">#6F18E6</color>
-    <color name="lightPink">#ff69c5</color>
+    <color name="lightPink">#F7FCF7</color>
     <color name="defaultColor">#2962FF</color>
 <!--    <color name="red">#E91E63</color>-->
 </resources>

@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="Gradle: com.microsoft.projectoxford:face:1.4.3@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d4308490fa7c8285a3b74314cbd0b29b/jetified-face-1.4.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d4927a1b4dceab6e9b6ab3eaa9a56678/jetified-face-1.4.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ec168c3c96992fc1a0f387ab6326881f/jetified-face-1.4.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/393e810f9c94a278e4f4c0311fb5247f/jetified-face-1.4.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/269dca6b3031ac1cee16140e9a6da91c/jetified-face-1.4.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a8d4187197cdd6767f8710699d3740ff/jetified-face-1.4.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/269dca6b3031ac1cee16140e9a6da91c/jetified-face-1.4.3/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/269dca6b3031ac1cee16140e9a6da91c/jetified-face-1.4.3/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
